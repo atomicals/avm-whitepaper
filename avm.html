@@ -1,0 +1,725 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='https://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+ 
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+ 
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+ 
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+@include-when-export url(https://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext);
+
+:root {
+	--control-text-color: #777;
+}
+
+/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+h1,
+.h1,
+.f1 {
+	font-size: 1.5rem;
+	line-height: 2.0rem;
+}
+h2,
+.h2,
+.f2 {
+	font-size: 1.2rem;
+	line-height: 1.7rem;
+}
+h3,
+.h3,
+.f3 {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+p,
+.p,
+.f4,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+pre[cid],
+div[cid],
+#typora-source {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}
+
+h4 {
+	font-size: 1.13rem;
+}
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+body {
+	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
+#write {
+	max-width: 914px;
+	color: #333;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media only screen and (min-width: 1700px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+}
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.ty-table-edit {
+	background: #ededed;
+}
+
+table {
+	width: 100%;
+	font-size: 1.125rem;
+}
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+	padding: 12px;
+	line-height: 1.2;
+	vertical-align: top;
+	border-top: 1px solid #333;
+}
+table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #333;
+}
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
+	border-top: 0;
+}
+table > tbody + tbody {
+	border-top: 2px solid #333;
+}
+p {
+	font-weight: 300;
+	line-height: 1.5;
+}
+abbr {
+	border-bottom: 1px black dotted;
+	cursor: help;
+}
+pre,
+code {
+	font-family: Menlo, Monaco, "Courier New", monospace; font-size: 12px;
+}
+
+code,
+.md-fences  {
+	color: #7a7a7a;
+}
+
+.md-fences {
+	padding: 1.125em;
+	margin-bottom: 0.88em;
+	font-size: 1rem;
+	border: 1px solid #7a7a7a;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+blockquote {
+	padding: 1.33em;
+	font-style: italic;
+	border-left: 5px solid #7a7a7a;
+	color: #555;
+}
+blockquote em {
+	color: #000;
+}
+blockquote footer {
+	font-size: .85rem;
+	font-style: normal;
+	background-color: #fff;
+	color: #7a7a7a;
+	border-color: transparent;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 1em 0 0.5em;
+}
+@media screen and (min-width: 48em) {
+	.h1,
+	h1 {
+		font-size: 3.250rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.298rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.625rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+	#write>h4.md-focus:before,
+	#write>h5.md-focus:before,
+	#write>h6.md-focus:before{
+		top: 1px;
+	}
+	.p,
+	p,
+	li {
+		font-size: 1.25rem;
+		line-height: 1.8;
+	}
+	table {
+		font-size: 1.25rem;
+	}
+}
+@media (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+}
+@media screen and (min-width: 64em) {
+	.h1,
+	h1 {
+		font-size: 4.498rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.29rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.9rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.591rem;
+	}
+	#write>h4.md-focus:before{
+		top:4px;
+	}
+}
+a {
+	color: #463F5C;
+	text-decoration: underline;
+}
+
+#write {
+	padding-top: 2rem;
+}
+
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+	white-space: pre;
+	border: 0px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
+	margin-bottom: 2em;
+	margin-top: -2010px;
+	padding-top: 2000px;
+	padding-bottom: 10px;
+	line-height: 1.5em;
+	color: #7a7a7a;
+	background-color: #fafafa;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 300;
+	clear: both;
+	padding-left: 0;
+	font-size:1.125rem;
+}
+.md-image>.md-meta {
+	color: #463F5C
+}
+.footnotes {
+	font-size:1.1rem;
+}
+.md-tag {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.code-tooltip {
+	background: white;
+}
+.code-tooltip-content {
+	font-size: 1.1rem;
+}
+
+.task-list{
+	padding-left: 0;
+}
+
+.md-task-list-item {
+	padding-left:34px;
+}
+
+.md-task-list-item > input{
+	width: 1.25rem;
+	height: 1.25rem;
+	display: block;
+	-webkit-appearance: initial;
+	top: -0.2rem;
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 7px);
+	border: none;
+}
+
+.md-task-list-item > input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.md-task-list-item > input:before{
+	border: 1px solid #555;
+	border-radius: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: #fff;
+	content: ' ';
+	transition: background-color 200ms ease-in-out;
+	display: block;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	background: #333;
+	border-width: 2px;
+	display:inline-block;
+	transition: background-color 200ms ease-in-out;
+}
+
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after {
+	opacity: 1;
+}
+
+.md-task-list-item > input:after {
+	opacity: 1;
+	-webkit-transition: opacity 0.05s ease-in-out;
+	-moz-transition: opacity 0.05s ease-in-out;
+	transition: opacity 0.05s ease-in-out;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 0.4375rem;
+	left: 0.28125rem;
+	width: 0.9375rem;
+	height: 0.5rem;
+	border: 3px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	content: ' ';
+	opacity: 0;
+}
+
+.md-tag {
+	color:inherit;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+#typora-sidebar {
+	font-size:1rem !important;
+}
+
+.html-for-mac #typora-sidebar {
+	background-color:white;
+}
+
+.outline-content li, .outline-content ul {
+	font-size:1rem !important;
+}
+
+.outline-title {
+	line-height: inherit;
+	margin-top: 10px;
+}
+
+.outline-expander {
+	width: 18px;
+}
+
+.outline-expander:before {
+ 	content: "+";
+	font-family: inherit;
+	color: rgb(108, 108, 108); 
+  font-size: 1.5rem;
+ 	top: -0.1rem;
+}
+
+.outline-expander:hover:before {
+	content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before{
+	content: "-";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.os-windows #typora-source {
+	font-family: inherit;
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.md-diagram-panel {
+	margin-top: 24px;
+	margin-left: -1.2em;
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -3.4em;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+li {
+	margin: 0.5rem 0;
+}
+
+li > *:last-child {
+	margin-bottom: 0;
+}
+#main-all {
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: justify;
+}
+span {
+	font-size: 14px;
+}
+</style><title>avm</title>
+</head>
+<body class='typora-export'><div class='typora-export-content' style="text-align:justify">
+<div id='main-all'  class=''><h2 id='avm-smart-contracts-on-bitcoin-by-simulating-the-bitcoin-virtual-machine' style="text-align:center; font-size: 20px; word-wrap: nowrap; white-space: nowrap;">AVM: Smart Contracts on Bitcoin by Simulating The Bitcoin Virtual Machine</h2>
+	
+
+	<p style="text-align:justify; padding-left: 40px; padding-right: 40px; line-height: 1.45; padding-bottom: 15px; padding-top: 15px; font-size: 0.6em;"><strong><span>Abstract</span></strong>. Until now, all overlay digital asset protocols on Bitcoin have operated according to fixed rules for the creation and transfer of digital assets. Completely flexible (Turing Complete) smart contracts can be created for overlay digital assets by allowing programmers to define state machine logic for creation and transfer rules. We propose a solution, called Atomicals Virtual machine (AVM), to enable smart contracts by leveraging Bitcoin as a global database, storing smart contract code in transactions and executing them in a sandboxed run-time via overlay digital asset indexers. The original Bitcoin Script Op Code instruction set is used as the programming language since it has all the important properties necessary for efficient execution in resource constrained environments. State hashes track the overlay transactions and provide an easy way for participants to communicate their synchronization state. The solution we present is the natural evolution of overlay digital asset protocols on Bitcoin and simultaneously serves as a testing ground for the original Bitcoin Op Codes to demonstrate their flexibility and safety.</p>
+	<h2 id='1-introduction'><span>1. Introduction</span></h2><p><span>The Bitcoin Peer-to-Peer Electronic Cash System [1] has come to be primarily used as a store of value, so called &quot;digital gold&quot;, with medium of exchange being a somewhat distant secondary use case. Many of the original Op Codes which are required for advanced scripting were disabled by Satoshi Nakamoto prior to his departure. The explanations offered were security reasons </span>&mdash;<span> in particular the avoidance of potential denial of service attacks. The removed Op Codes are maintly the arithmetic and binary manipulation operations which developers rely upon even in the most basic programming environments. Without these crucial Op Codes, Bitcoin application developers and therefore end users are limited to narrow categores of usage. Particularly important is </span><code>OP_CAT</code><span> (data concatenation) which ultimately can be used to create custom spend and carry-forward constraints called </span><em><span>covenants</span></em><span>. As a result of these past decisions, Bitcoin can </span><em><span>only</span></em><span> be digital gold and not </span><em><span>also</span></em><span> the powerful smart contract system that Satoshi Nakamoto envisioned. In other words, Bitcoin is </span><em><span>necessarily</span></em><span> &quot;digital gold&quot; because it is not possible to create smart contracts owing to the fact that crucial Op Codes were disabled in the hopes of protecting the nascent electronic cash system.</span></p><blockquote><p><span>“The nature of Bitcoin is such that once version 0.1 was released, the core design was set in stone for the rest of its lifetime. Because of that, I wanted to design it to support every possible transaction type I could think of. The problem was, each thing required special support code and data fields whether it was used or not, and only covered one special case at a time. It would have been an explosion of special cases. The solution was script, which generalizes the problem so transacting parties can describe their transaction as a predicate that the node network evaluates.” - Satoshi Nakamoto [2]</span></p></blockquote><p><span>Various protection mechanisms have been added to Bitcoin since the Op Codes were first disabled. One such limit is MAX_SIGOPS which limits the maximum number of </span><em><span>Sig</span></em><span>nature </span><em><span>Op</span></em><span>erations allowed in any given transaction. We also have the benefit of hindsight to see how the risks of the original Op Codes have played out in the Bitcoin forks such as Bitcoin Cash and Bitcoin Satoshi Vision, both of which have reactivated the vast majority of all the original Op Codes many years ago. To date there have been no security problems, no denial of service attacks, and practically no controversy with respect to the functionality of the reactivated Op Codes. On the contrary it has resulted in a significant expansion of development possibilities on those very Bitcoin forks.</span></p><p><span>Even with the current limitations of smart contracts on Bitcoin, a number of overlay protocols have emerged that allow the creation and transfer of digital assets on Bitcoin itself using overlay protocol indexers. The first major mainstream overlay protocol was the non-fungible token standard called Ordinals, which was quickly followed by the release of a fungible token standard called BRC20. Shortly after a number of other digital asset protocols have emerged such as Atomicals Digital Objects along with ARC20, a fungible token standard which leverages the satoshi units themselves as the unit of account. Various other overlay protocols were created recently such as Bitcoin Stamps and the Runes fungible token protocol in April 2024. The current generation of these overlay protocols work largely in the same way in that data in Bitcoin transactions are used to create and manage digital assets. Overlay protocol indexers handle the tracking and lifecycle of digital assets by reading data directly from the specially marked Bitcoin transactions. What is missing in all overlay protocols is the ability for programmers to customize the behaviour of digital assets </span>&mdash;<span> there has not yet been a way to create smart contracts for overlay protocols until now.</span></p><p><span>We present a method to create and execute smart contracts for various overlay digital assets by simulating the Bitcoin Virtual Machine and it&#39;s Script Interpreter. The Bitcoin blockchain acts as the timestamp and data provider for smart contract programs stored on-chain, however the execution of the programs are performed by overlay protocol indexers using a sandboxed run-time. Overlay protocol indexer nodes are operated by application developers, services providers and users alike which creates a kind of emergent consensus. The concept and technique is generally applicable to any of the overlay protocols, with the appropriate modifications to their respective overlay protocol indexers.</span></p><p><span>We demonstrate the power and elegance of the original Bitcoin design. This new paradigm can serve as a testing ground for various Op Codes, albeit for digital asset overlay protocols, in the hopes that Bitcoin will eventually reactivate all of the original Op Codes, realizing the ultimate potential of Satoshi Nakamoto&#39;s creation.</span></p><h3 id='2-bitcoin-as-global-database'><span>2. Bitcoin as Global Database</span></h3><p><span>The Bitcoin network is fundamentally a distributed timestamp server designed for the purpose of solving the double spend problem. More generally the design of the system lends itself for the transmission and storage of more than mere monetary transactions. In fact, explicit features were included for the express purpose of storing data such as invoices and large files. Satoshi Nakamoto included various Op Codes such as </span><code>OP_RETURN</code><span> to allow arbitrary data attachments and </span><code>OP_PUSHDATA4</code><span> which allows data pushes up to 4 Gigabytes in size.  Even the very first Bitcoin transaction called the </span><em><span>Genesis Coinbase Transaction</span></em><span> included textual data: </span><em><span>&quot;The Times 03/Jan/2009 Chancellor on brink of second bailout for banks&quot;</span></em><span>.</span></p><p><span>Throughout the years there have been numerous attempts to discourage using Bitcoin as a data storage medium by restricting the maximum push data size to 520 bytes and limited the </span><code>OP_RETURN</code><span> payload size to 40 bytes (later expanded to 80 bytes). Indeed it was portrayed as an attack vector and would lead to runaway &quot;blockchain bloat&quot; that would crowd out pure monetary usages. It seemed like a reasonable protection mechanism at the time. </span></p><p><span>In recent times, the Bitcoin developers introduced Segregated Witness (SegWit) and the Taproot upgrades which effectively reintroduced the capability to store larger volumes of arbitrary data similar to the early versions of Bitcoin. The opportunity was quickly seized by application developers to leverage Bitcoin as the immutable global data ledger. The market for digital assets on Bitcoin has grown exponentially to billions of dollars of market capitalization and has generated hundreds of millions of dollars in network fees paid to miners in a relatively short period of time.</span></p><h3 id='3-overlay-protocols'><span>3. Overlay Protocols</span></h3><p><span>Hal Finney introduced and predicted the emergence of &quot;overlaying other protocols onto Bitcoin&quot; that would leverage Bitcoin as a global, decentralized, and consistent database for digital assets. The basic idea is to signal the creation of overlay assets and associate data with a particular transaction history. It adds another dimension to Bitcoin as monetary system, in that the transaction outputs themselves can represent any other type of digital asset such as tokens, credits, digital media </span>&mdash;<span> even proxies for claims over physical assets.</span></p><blockquote><p><span>&quot;In discussion on the BitDNS thread I came up with an idea for overlaying other protocols onto Bitcoin. From one point of view, Bitcoin is a global, decentralized, yet consistent database. This DB is used to record transfers of coins, but it could potentially be used for more. There are many applications for a global consistent database.</span></p><p><span>Borrowing from my BitDNS description, the way this would work is we would use the mysterious and extravagant &quot;scripting&quot; system to add additional data to regular Bitcoin transactions. These would look like NOPs to current clients and be ignored, but overlay aware clients would look inside this NOP block and see the extra protocol-specific data, and interpret it according to the overlay protocol.</span></p><p><span>Specifically i could imagine using OP_NOP1 to signal overlay data, then OP_PUSHDATA to push the specific data, then OP_DROP to drop it from the stack, followed by the regular tx opcodes. This will have no effect on regular clients and look like a regular transaction (can be a dummy tx, 0.01 to yourself) but overlay aware code sees a protocol transaction.</span></p><p><span>As an example, Bitcoin could be used as an inexpensive timestamp service, allowing you to prove that a certain document existed on or before a certain date. All you need to do is create a dummy transaction to yourself, and hack the client to do an OP_PUSHDATA of the hash of the document, then OP_DROP it. The hash will be around for all time in the block chain and stand as proof that the document existed at that date.&quot; - Hal Finney [3]</span></p></blockquote><p><span>The first overlay protocol that has achieved significant adoption is Ordinals Theory. It is described in the Ordinals Handbook: </span><em><span>&quot;Individual satoshis can be inscribed with arbitrary content, creating unique Bitcoin-native digital artifacts that can be held in Bitcoin wallets and transferred using Bitcoin transactions. Inscriptions are as durable, immutable, secure, and decentralized as Bitcoin itself.&quot;</span></em><span> </span></p><p><span>Shortly after the growth of Ordinals, developers recognized the need for a fungible token standard on Bitcoin and therefore the BRC20 standard was created to address that need. BRC20 leveraged Ordinals Theory to create an overlay account model that would be associated with wallet addresses and be able to send and receive token units, essentially creating a layered </span><em><span>overlay protocol</span></em><span> on top of Ordinals Theory, which itself being an overlay protocol on top of Bitcoin.</span></p><p><span>Later in 2023, another protocol called Atomicals Protocol Digital Objects was created to address the growing market need of token standards and indexing technology. It is described in the Atomicals Guidebook: </span><em><span>&quot;The Atomicals Protocol is a simple, yet flexible protocol for minting, transferring and updating digital objects (traditionally called non-fungible tokens) for unspent transaction output (UTXO) blockchains such as Bitcoin. An &quot;Atomical&quot; is a way to organize the creation, transfer and updates of digital objects – it is essentially a chain of digital ownership defined according to a few simple rules.</span></em><span>&quot;.  The Atomicals Protocol includes a fungible token standard called ARC20 which has the unique property that each unit of a token is backed by at least 1 satoshi unit and operates according the the same rules of sending and receiving Bitcoin itself using the unspent transaction output (UTXO) architecture.</span></p><p><span>By early 2024 another overlay protocol called Runes was released, which was implemented directly in the Ordinals indexer to complete the Ordinals Theory to finally include a fungible token standard.</span></p><h3 id='4-state-machines'><span>4. State Machines</span></h3><p><span>All of the overlay protocols on Bitcoin thus far have been based on fixed or predefined state machines. All overlay protocols share in common essentially two state machines: one for signalling the creation of digital assets and the other for governing the transfer of those digital assets. The state machine rules are essentially unchangeable and hard-coded in their respective overlay protocol indexers </span>&mdash;<span> application developers have no way to customize digital asset behavior.</span></p><p><span>What is needed is a way for application developers to define the creation and transfer lifecycles of their digital assets. We present a model of dynamic state machine programming that allows application developers to fully customize and define arbitrary rules for their digital assets. </span></p><p><img src="./state.png" referrerpolicy="no-referrer" alt="Alt text"></p><p><span>The basic idea is to allow developers to put their smart contract code in the data segments of transations to make available for all parties to execute. By having the code stored on the blockchain, it is easy for different parties to synchronize state by executing the logic in the same way. The smart contract programming language should the following key properties at a minimum:</span></p><ul><li><p><span>Predictable run-time</span></p></li><li><p><span>Arbitrary flexibility -  Turing Completeness [4]</span></p></li><li><p><span>Efficient execution on resource constrained systems</span></p></li></ul><p><span>From the above requirements, we see that Bitcoin Script lends itself very well to being such an instruction set to define creation and transfer rules of digital assets. Virtually any type of rule should be made possible, while also limiting the execution time to prevent denial of service attacks </span>&mdash;<span> which essentially amounts to avoiding infinite loops. Bitcoin Script is now generally acknowledged to be Turing Complete, being a Two Stack Pushdown Automata (2-Stack PDA) and has the benefit of not having any looping instruction, but can achieve the same effect as loops using the technique of loop unrolling. Therefore, it has the special property that the run-time of a program is linearly proportional to the size of the program itself.  </span></p><p><img src="./statedynamic.png" referrerpolicy="no-referrer" alt="Alt text"></p><p><span>Smart contract program code is stored in Bitcoin transactions and overlay protocol indexers execute the code for the various method calls and state transitions. All interested parties execute the same logic and arrive at the identical state transitions, which forms an emergent consensus. </span></p><h3 id='5-state-consensus'><span>5. State Consensus</span></h3><p><span>Synchronization of state can be achieved using a state hash which communicates the internal state of an overlay protocol indexer to each other and to external observers. By publishing state hashes for each block, it is easy for various parties to assess whether they are following the same rules and whether they have arrived at the same state with respect to each other. </span></p><p><img src="./statehash.png" referrerpolicy="no-referrer" alt="Alt text"></p><p><span>There is no need for a complex state commitment scheme because all data is on stored on chain and timestamped in chronological order, allowing anyone to arrive at the exact same state. This scheme reflects the Bitcoin ethos &quot;Don&#39;t trust, verify&quot; in that each user can validate the entire Bitcoin blockchain and therefore ascertain the states of all smart contract programs.</span></p><h3 id='6-virtual-digital-assets'><span>6. Virtual Digital Assets</span></h3><p><span>Any overlay protocol can adopt this dynamic state machine programming technique and allow digital assets to be virtualized into and out of smart contracts. In essense, it means we can create the concept of deposits and withdraws as a matter of convention, since after all everything else is already a matter of convention that depends on the complete historical record of transactions on the blockchain being used to build up the indexer states. We discuss two kinds of virtualization below: account-based and UTXO-based.</span></p><p><span>With BRC20 the token balances are account abstractions and can be described as a type of virtual digital asset - a digital asset on top of a digital asset (Bitcoin). Atomicals ARC20 tokens are abstractions that maintain an affinity to the underlying satoshi units themselves, but nonetheless are also a type of virtual digital asset. These are more accurately termed &quot;virtual digital assets&quot; because their existence is an abstraction on top of another digital asset (Bitcoin).</span></p><p><span>To create virtual account-based abstraction, we can define a state machine which accepts any type of token to be deposited </span><em><span>into</span></em><span> the contract and can later be </span><em><span>withdrawn</span></em><span>, similar to how the Ethereum blockchain&#39;s Solidity programming language permits methods to be annotated as </span><em><span>payable</span></em><span> to indicate that Ether may be paid to that method and later withdrawn according to the rules of the smart contract program. The tracking and management of these digital assets could be done with special Op Codes such as </span><code>OP_FT_WITHDRAW</code><span> and </span><code>OP_NFT_WITHDRAW</code><span> and a mechanism for </span><em><span>payable</span></em><span> methods to accept tokens inside the smart contract state. </span></p><p><span>Building upon the account-based abstraction, it is possible to define protected smart contract memory that can only be written to by the contract itself. Recall that Atomicals Digital Objects already provides a general purpose key-value storage for non-fungible tokens, we can define a memory space that can only be written to using special key-value storage access Op Codes such as </span><code>OP_KV_GET</code><span>, </span><code>OP_KV_EXISTS</code><span>, </span><code>OP_KV_DELETE</code><span>, and </span><code>OP_KV_PUT</code><span> for retrieval, existence, deletion and write access respectively. This storage technique elevates smart contracts on Bitcoin to a similar level of functionality as the Ethereum blockchain.</span></p><p><span>Another approach from an enitrely other angle is what we call the virtual UTXO (vUTXO) architecture. The virtual UTXO architecture basically adheres and respects the chain of transaction output-spends and binds an output to a specific locking script, which can only be unlocked by providing a valid unlocking script. This effectively creates a virtual overlay UTXO-set that is stored and managed in the overlay protocol indexers, allowing complete freedom for virtual digital asset developers to all the limitations of the limited instruction set provided by Bitcoin miners. The main caveat is that there must be an expiry time, refresh policy, and an eviction strategy for handling stale vUTXO to prevent the overlay protocol indexer state from becoming too large. </span></p><h3 id='7-system-architecture'><span>7. System Architecture</span></h3><p><span>To ensure the consistent execution of smart contracts, the AVM interpreter runs in a sandboxed environment which is called by the host indexer. In this way different host indexer programming languages and environments can more easily achieve consensus compatibility by having a canonical way to execute scripts.</span></p><p><span>The sandboxed interpreter is a stripped down version of the Bitcoin Script Interpreter with some notable differences such as accepting the execution locking script (scriptPubKey) and the unlocking script (scriptSig) directly along with the various other data such as token state and protected memory snapshots. </span></p><p><img src="./arch.png" referrerpolicy="no-referrer" alt="Alt text"></p><h3 id='8-conclusion'><span>8. Conclusion </span></h3><p><span>We have proposed the Atomicals Virtual Machine (AVM), a smart contract system for overlay digital assets on Bitcoin by simulating the Bitcoin Virtual Machine. Up until now, overlay digital assets on Bitcoin were governed entirely by predefined state transition rules: allow nothing more than the creation and transfer of those digital assets. To solve this, we proposed a general technique to allow smart contracts by leveraging Bitcoin as a global database and storing smart contracts in transactions for the execution in a sandboxed run-time via the overlay digital asset indexers. The original Bitcoin Script instruction set is sufficiently capable and powerful because it is a 2-Stack PDA and has been proven to be Turing Complete. By using state hashes, it is easy for participants to validate that indexer states are synchronized correctly. The system is flexible enough and a natural evolution of existing overlay protocols and demonstrates the tremendous capability of the original Bitcoin Script and Virtual Machine.</span></p>
+	
+	<h3 id='references'><span>References</span></h3><p><span>[1] Satoshi Nakamoto, &quot;Bitcoin: A Peer-to-Peer Electronic Cash System&quot; </span><a href='https://bitcoin.org/bitcoin.pdf' target='_blank' class='url'>https://bitcoin.org/bitcoin.pdf</a><span>, 2008.</span></p><p><span>[2] Satoshi Nakamoto, &quot;The nature of Bitcoin is such that once version 0.1 was released, the core design was set in stone for the rest of its lifetime...&quot;, </span><a href='https://satoshi.nakamotoinstitute.org/posts/bitcointalk/126/' target='_blank' class='url'>https://satoshi.nakamotoinstitute.org/posts/bitcointalk/126/</a><span>, 2010.</span></p><p><span>[3] Hal Finney, &quot;In discussion on the BitDNS thread I came up with an idea for overlaying other protocols onto Bitcoin...&quot;, </span><a href='https://bitcointalk.org/index.php?topic=2077.msg26888' target='_blank' class='url'>https://bitcointalk.org/index.php?topic=2077.msg26888</a><span>, 2010.</span></p><p><span>[4] Wikipedia contributors. &quot;Turing completeness.&quot; </span><em><span>Wikipedia, The Free Encyclopedia</span></em><span>. Wikipedia, The Free Encyclopedia, </span><a href='https://en.wikipedia.org/wiki/Turing_completeness' target='_blank' class='url'>https://en.wikipedia.org/wiki/Turing_completeness</a><span>, 2024</span></p>
+	
+
+	<h3 id='disclaimer'><span>Disclaimer</span></h3>
+	<p><span>This document does not constitute an investment, promise, warranty, guarantee or contract of any kind. The authors, developers, and copyright holders DO NOT warrant the software for any purpose. Atomicals and the Atomicals Virtual Machine (AVM) are both general purpose techniques for transparently tracking digital assets on the Bitcoin and UTXO based blockchains. Anyone is free to adopt and use the technique for their legal and lawful purposes provided the relevant jurisdictions permit the creation and use of such software.</span></p>
+
+	<p><span>There are no tokens officially associated with "Atomicals Virtual Machine" "AVM". THERE ARE NO FORMAL OR IMPLIED RELATIONSHIPS TO ANY TOKENS. Any similarly named tokens are expressly not associated with the Atomicals Virtual Machine creators, developers, and copyright holders.</span></p>
+
+	<p><span>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. THE SOFTWARE DOES NOT REPRESENT ANY INVESTMENT, SECURITY, SHARE, FINANCIAL INSTRUMENT, REDEMPTION, PROMISSARY NOTE, BEARER INSTRUMENT OR COMMITTMENT OF ANY KIND.</span></p>
+
+	<h3 id='thank-you-to-all-supporters'><span>Thank You to All Supporters</span></h3><p><span>The following names and messages are included as a Thank You to all supporters. There were no payment nor purchase requirements and no other requirements to have a message included below other than to voluntarily submit a name and/or message. It is our show of gratitude to everyone and we inscribe and immortalize their support. The messages belong to their respective owners. The message contents below are not endorsed by the authors or developers and are strictly the sole property of those person(s) who submitted their messages. There is no utility, nor future roadmap, nor future usage of the messages below except to acknowledge their support.</span></p>
+	<br/><br/>
+	
+	<p><strong><span>List of supporters (in no particular order):</span></strong></p><p><span>Concord, Massachusetts</span></p><p><span>shadow: keep building</span></p><p><span>Thomas PEACE: 5cd8002820ab74f299911ab2d613d54430d419723bae475ea2b8c876709416ed (sha256 of &quot;Look Mom I&#39;m on Bitcoin&quot;)</span></p><p><span>芭比金刚: 我们共同见证，崭新的加密时代. 我们和atomicals站在一起</span></p><p><span>El1contreras</span></p><p><span>DateDiver: Decentralization and community unity. We will build together on the protocol and make history within the Bitcoin blockchain.⚛️ </span></p><p><span>+kuniter: Long Live Atomicals</span></p><p><span>Wizz: Coloring The Bitcoin, Programming The Future</span></p><p><span>ArlynsCryptoTrader: No existe valor mas importante que la Libertad - There is no value more important than Freedom</span></p><p><span>josephbm_btc: Muy contento y agradecido por ser parte de este proyecto deseo muchos éxitos en todo lo que hagan bendiciones</span></p><p><span>nicolasgpcr</span></p><p><span>bejar</span></p><p><span>julianbb</span></p><p><span>ZZQ: Web3 world will remember what&#39;s we achieved. Love you all my family.</span></p><p><span>Andrés Quiros Valverde</span></p><p><span>Anonymous: Ξthos </span><strong><span>₿</span></strong><span> : no race, no skin, only love</span></p><p><span>Howe: Best wishes to Atomicals and always believe it will make a revolution in the BTC ecosystem.</span></p><p><span>AlexV525</span></p><p><span>Anonymous: EVO will be a dynasty</span></p><p><span>FireKun: DAOs will be the building blocks of future human civilization. The Realm Name system is the best platform for creating DAOs. Thanks to Atomicals, Bitcoin is great again!</span></p><p><span>灰太狼吉哥Nakamoto: If you don&#39;t believe me or don&#39;t get it, I don&#39;t have time to try to convince you, sorry.</span></p><p><span>Disco Quotidie: live w/ bitcoin</span></p><p><span>CESARDATA: MAMÁ LO LOGRÉ!</span></p><p><span>DragonCapsule loves Atomicals</span></p><p><span>Dennis@MetaFoxes</span></p><p><span>baihe455</span></p><p><span>CripVtor: Manuel desde El Salvador: La libertad no tiene precio, el desarrollo de la AVM marca un antes y un después en Blockchain</span></p><p><span>KIANG: Atomical protocol ha llegado a colorear un mundo centralizado y monocromático</span></p><p><span>money3315: Atomicals is a great invention! I firmly believe that it can go further and grow taller! Good luck to us!</span></p><p><span>Anonymous: 大山梦</span></p><p><span>Zhang Q</span></p><p><span>+atomshuttle</span></p><p><span>+web3er</span></p><p><span>see222: 道阻且长，行则将至</span></p><p><span>see111: 不啻微茫，造炬成阳</span></p><p><span>木子: 功不唐捐，玉汝于成</span></p><p><span>阿科: 浮生若梦，为欢几何</span></p><p><span>陈陈: 荜路蓝缕，栉节沐风</span></p><p><span>小白菜: 大音希声，大象无形</span></p><p><span>Anonymous: 温柔半两，从容一生</span></p><p><span>Anonymous: 乾坤未定，你我皆是黑马</span></p><p><span>Anonymous: 工贵其久，业贵其专</span></p><p><span>Anonymous: 坚持不懈，终将成功</span></p><p><span>Anonymous: 勇敢追梦，无所畏惧</span></p><p><span>Anonymous: 信心是成功的关键</span></p><p><span>Anonymous: 踏上征程，追寻光明</span></p><p><span>Anonymous: 梦想是行动的起点</span></p><p><span>Anonymous: 坚持与激情，点燃希望之火</span></p><p><span>Anonymous: 无畏前行，成就梦想</span></p><p><span>Anonymous: 勇敢迈出第一步，未来即刻展开</span></p><p><span>Anonymous: 每一次的尝试都是通向成功的桥梁</span></p><p><span>Anonymous: 希望是前行的动力，坚持是抵达目的地的关键</span></p><p><span>Anonymous: 创业之路不止于目的地，更在于沿途的风景</span></p><p><span>Anonymous: 困难不是终点，而是通往成功的必经之路</span></p><p><span>Anonymous: 行动胜过一切，梦想因行动而生</span></p><p><span>Anonymous: 挑战是成长的阶梯，勇气是攀登的力量</span></p><p><span>Anonymous: 成功的种子，播种于不断努力的土壤</span></p><p><span>Anonymous: 明日之花，源自今日的耕耘</span></p><p><span>Anonymous: 不放弃，不止步，前行的路上皆是希望</span></p><p><span>Anonymous: 创业路上，每一步都在接近成功的彼岸</span></p><p><span>Anonymous: 我诚 路自稳.</span></p><p><span>Anonymous: 山高路远 只看自己.</span></p><p><span>Anonymous: 做野花 做千千万万.</span></p><p><span>Anonymous: 不讨好不迎合不够讨喜但自由.</span></p><p><span>Anonymous: 我爱舒服的晚风自由的灵魂.</span></p><p><span>Anonymous: 路上见识自己 途中认清自己.</span></p><p><span>Anonymous: 无心风月 独钟自己.</span></p><p><span>Anonymous: 若无共呜 沉默即安.</span></p><p><span>Anonymous: 先自沉稳 而后爱人.</span></p><p><span>Anonymous: 泛交不如独往</span></p><p><span>Anonymous: 做自己的灯塔</span></p><p><span>Anonymous: 边清零边拥有</span></p><p><span>Anonymous: 越山 阅书悦己</span></p><p><span>Anonymous: 偏见是无知的产物</span></p><p><span>Anonymous: 关注内心 远离喧嚣</span></p><p><span>Anonymous: 做让人远远听见的风</span></p><p><span>Anonymous: 步伐一致的人不会走散</span></p><p><span>Anonymous: 知足知不足 有为有不为</span></p><p><span>Anonymous: 欲成大树 莫与草争</span></p><p><span>Anonymous: 别听建议 听听自己</span></p><p><span>Anonymous: 心静则淡泊 不争则宽松</span></p><p><span>Anonymous: Build A Vibrant Metaverse on Bitcoin，原神启动⚛️</span></p><p><span>Manupe: AVM, This is the way</span></p><p><span>Issam: Kash said it,776 lucid on top d&#39;ici 2027 je suis loin d&#39;ici</span></p><p><span>songkan: 有格局的项目方</span></p><p><span>innocente.eth: Congratulations AVM</span></p><p><span>Anonymous: ATOMICAL IS BITCOIN&#39;S FUTURE. COME ON.</span></p><p><span>Anonymous: Atomicals，请再次伟大</span></p><p><span>D10S</span></p><p><span>POWERFEI</span></p><p><span>cyber牛</span></p><p><span>BridgeHoleCap: Hello,Atomicals</span></p><p><span>haifeng: 因为相信，所以看见!</span></p><p><span>Jackie: we are with you</span></p><p><span>Anonymous: Empty your minds,Be formless shapeless, like water. Water can flow or it can crash, be water,it is very slow and you push it out, running water never grow stale. All the time you are keeping the continuity going.</span></p><p><span>April: like water</span></p><p><span>Skyler</span></p><p><span>a16886</span></p><p><span>Sixologist: Make Bitcoin great again!</span></p><p><span>fly_higher: salute to Idealism / 向理想主义致敬</span></p><p><span>ChaseCalleja</span></p><p><span>Arren亚刃: Atom changes the world and my life</span></p><p><span>voyager_zh: Make Atomicals Great Again!</span></p><p><span>tiedyedmt</span></p><p><span>F.F: Make Bitcoin Great Again</span></p><p><span>AndyJiang: I love ATOM</span></p><p><span>Alp2a: Make Atomicals Great Again!</span></p><p><span>DannftTc: keep going！！ LFG ！！</span></p><p><span>misscryptochen: always supports magic Atomicals!</span></p><p><span>cybex888</span></p><p><span>+blueark: Can&#39;t wait for AVM to launch and shake up the ecosystem! Let&#39;s do this!</span></p><p><span>SuperL9</span></p><p><span>Blueee: Hopefully something more interesting will happen.</span></p><p><span>freeusa.eth: Always support Atomicals ⚛️</span></p><p><span>ChengGong: For atomicals, For builders!</span></p><p><span>Yixin</span></p><p><span>btcdayu-hpk: Atomical will be very hot fast!</span></p><p><span>lxcong.eth: make bitcoin great again</span></p><p><span>tang430</span></p><p><span>wiki: will make Bitcoin and the Atomicals protocol great again! Let&#39;s build the BIT civilization together!  </span></p><p><span>0xMatsu: Make colored coin great again!</span></p><p><span>Ghezzi</span></p><p><span>Peter Logan: New Era</span></p><p><span>taooz1: AVM UP！</span></p><p><span>ffromer: 希望ARC20做大做强，为比特生态做出更大的贡献</span></p><p><span>LaPLoD: 衷心祝愿atomicals协议能够成功，也祝福一切理想主义者能够成功。 best wishes to atomicals protocol and all idealist</span></p><p><span>lorryxiong: Realize Satoshi Nakamoto&#39;s vision</span></p><p><span>aimierbear</span></p><p><span>Web3英语每日一句</span></p><p><span>luoran</span></p><p><span>blockpunk2077</span></p><p><span>NextDAO: NextDAO 🤝 Atomicals</span></p><p><span>Anonymous: 理想主义者终将取得胜利✌️</span></p><p><span>BoxMrChen and Collider: Make Atomicals Greate Again!</span></p><p><span>猫弟: Atomicals 是普通人最值得参与的比特币生态，没有之一</span></p><p><span>bandeng917</span></p><p><span>Kumata: For the future.</span></p><p><span>fishermengz</span></p><p><span>pinetworks.eth: atomicals is the best protocol of the 21st century</span></p><p><span>0xSea.eth: Make Bitcoin Great Again.</span></p><p><span>oz: Groundbreaking work has not only set a new benchmark but also inspires a future filled with limitless possibilities. Congratulations on this monumental achievement.</span></p><p><span>atomtoothy: we will always support Atomicals ⚛️</span></p><p><span>Allin0543: All IN ATOMICALS</span></p><p><span>+yon: Make Bitcoin Great Again.</span></p><p><span>+falcon: Atomicals, Quark, LFG!</span></p><p><span>PigBlockchain: 高老庄</span></p><p><span>phekda: God bless idealists.</span></p><p><span>+ivanoror: Thanks for everything.</span></p><p><span>0xFish</span></p><p><span>Xingkong.sats</span></p><p><span>Kika Wang: this is my ice cream money, for something cool</span></p><p><span>julian: mfer</span></p><p><span>gaohongxiang: Love Atomicals! Love AVM!</span></p><p><span>GanRy.x: 有意思比有意义本身更有意义.</span></p><p><span>Kar1kar1: Long live Atomicals</span></p><p><span>jessecai33: Make BTC Turing Complete</span></p><p><span>0xsimon: The road not taken makes all the difference.</span></p><p><span>Mr.Zhang: Atomicals grow at light speed!</span></p><p><span>0xshowhandism</span></p><p><span>suntoshi: Many hands make light work. WAGMI</span></p><p><span>SJTU trm: difference is value</span></p><p><span>yan: 我们的贡献，如同河流汇入大海，虽微不足道，却是不可或缺的一部分。每一份支持，都在推动着人类社会向前发展，证明了我们对技术进步的坚定信念。愿我的小小努力，能够汇聚成推动世界前行的力量。</span></p><p><span>MonicaSchm55590: 比特币让中华文化焕新生,Bitcoin makes Chinese culture great again.</span></p><p><span>0xwuming</span></p><p><span>sharp</span></p><p><span>taro: 遨游九霄</span></p><p><span>XBTC2008: Atomical Bombs are sparking a major explosion in BTC world.  </span></p><p><span>0xMatsu: Make colored coin great again!</span></p><p><span>奈斯: love atomicals.</span></p><p><span>江天霸: 历史上伟大的瞬间如同天上的繁星，而我们有幸化身为其中一颗，共同在宇宙的画卷上留下独特的轨迹。</span></p><p><span>0xNoVoice: Looking!The blitz loop this planet to search way.Only my Atomicals can shoot it.</span></p><p><span>Adolfo Cz: Oro Atomico</span></p><p><span>snow of pluto: 比特币是一个自我实现的预言。Make Bitcoin magical again !</span></p><p><span>Xinyue Zhang</span></p><p><span>Sixologist: Make Bitcoin great again!</span></p><p><span>Chevy: Marico ya tu viste lo que esta haciendo</span></p><p><span>Krito: I love Atomicals</span></p><p><span>silencezq: 肝 </span></p><p><span>0xfish</span></p><p><span>laobo: The crypto world is the greatest innovation and it’s fascinating</span></p><p><span>xiaobai</span></p><p><span>渣渣</span></p><p><span>Gouer: Support Atomicals LFG</span></p><p><span>石头: 再次让比特币光芒万丈</span></p><p><span>lzz96</span></p><p><span>Terrific: 8888</span></p><p><span>Gagus: 1974第一次在东南亚打自由搏击就获得了冠军…</span></p><p><span>Long</span></p><p><span>btctian </span></p><p><span>0xJeremy: avm can definitely create miracles!</span></p><p><span>ash: Atomicals will be immortal with Bitcoin.</span></p><p><span>+dragon: I love AVM</span></p><p><span>+snake: Make BTC great again!</span></p><p><span>brandontruely: petit à petit, l&#39;oiseau fait son nid.</span></p><p><span>痴大飞: I LOVE CT.</span></p><p><span>QuarksLand: Welcome to Quarks Land! Make Atomicals great again!</span></p><p><span>bravo_6688: make atomicals immortal</span></p><p><span>诺米: you know what M3</span></p><p><span>DannylovesDoris: In Atomicals we trust!</span></p><p><span>ocram857</span></p><p><span>Zach</span></p><p><span>EHMJ: may god bless me to be rich</span></p><p><span>lake: hello_world_hello_avm</span></p><p><span>clickbinary: NOTHING BUT RICH</span></p><p><span>DJ: quark It’s about time!</span></p><p><span>BTC2035: AVM is BEST</span></p><p><span>DAVTYAN ARA </span></p><p><span>DDD: IKUZO 衝 冲</span></p><p><span>spaceline</span></p><p><span>tanz: The end of infinity is a new beginning.</span></p><p><span>Fairy Mo: Fairy Mo doesn&#39;t care </span></p><p><span>marcjoe</span></p><p><span>barra</span></p><p><span>mikey: 价值有边际，模因无上限</span></p><p><span>小球</span></p><p><span>撸噜子『華文道』: 比特币让中华文化焕新生,Bitcoin makes Chinese culture great again.</span></p><p><span>maybe7093948</span></p><p><span>AmyWang: Bring Bitcoin to the next level，原神启动⚛️</span></p><p><span>blurmaggie: keep building!</span></p><p><span>守得云开见月明: Just do it and make Atomicals better and better -berry</span></p><p><span>QuarkToDaMoon: No1 meme coin in BTC ecosystem</span></p><p><span>Sankin: I think one token for one sats and bitwork are the most attractive features of the Atomicals protocol.</span></p><p><span>Dreworld</span></p><p><span>0xshushu</span></p><p><span>haiyu</span></p><p><span>胡翌霖『華文道』: 比特币让中华文化焕新生,Bitcoin makes Chinese culture great again.</span></p><p><span>Tanshui: Everything is becoming interesting; the &#39;singularity&#39; of the Bitcoin ecosystem has emerged.</span></p><p><span>Fernando torrico mariscal: thanks to be real all the time.!!!!</span></p><p><span>dynamox: believe in something</span></p><p><span>Thread: AVM makes BTC great again</span></p><p><span>ckw: 原子协议一统天下</span></p><p><span>+csrf: Lezhi+Emma+CSRF^_^</span></p><p><span>Leaper: This time, we are truly witnessing the ultimate innovation on Bitcoin—Atomicals are the answer to everything.</span></p><p><span>Joel Bodden: Living the Satoshi Nakamoto&#39;s Dream and be part of History of The AVM</span></p><p><span>MrVinPH, CPA: Contributing to Atomicals Protocol for the advancement of bitcoin and future success!</span></p><p><span>bitsky738: Love and Peace</span></p><p><span>老飘</span></p><p><span>Kuncle: Brother Han, is it really impossible to become an immortal cultivator without a spiritual root?</span></p><p><span>Teng: AVM unlocks infinite possibilities.</span></p><p><span>守得云开见月明: Go Big or Go Home—Berry</span></p><p><span>infinity: AVM makes Atomicals Protocol great!</span></p><p><span>Mosqu1to: The Atomicals protocol will change the world, so do I.</span></p><p><span>Jony He: 希望#Atomicals成为比特链上最主流的协议，为币圈打开聪的世界,最终实现万链归一. #Atomicals Protocol ⚛️ will make Bitcoin great again 05/26/2024</span></p><p><span>曼巴肘击</span></p><p><span>korou: Freedom and fairness are a movement, Bitcoin is the future!</span></p><p><span>Hernan H: Ser parte de esto es hermoso.</span></p><p><span>YIDASHI: 26.5.2024:daochiyiyou</span></p><p><span>Nahuel Pumari: Thanks to my family, Nicolas, Laura, Jorge, I love you.</span></p><p><span>KitoShi: no dejes de vivir por miedo a morir.</span></p><p><span>ahmed alsayadi</span></p><p><span>H.H: El brillo de los colmillos sobre las escamas de las gran serpiente... D10s existe y es atómico.</span></p><p><span>Coinwar: Unete a epicas batallas</span></p><p><span>Jaime: Success is not final, failure is not fatal: It is the courage to continue that counts</span></p><p><span>XEUG: Idealist,rock forever,102LDCB!</span></p><p><span>TommyDavis: Viva la Atomicals</span></p><p><span>Rudy.H: Pour toi mon fils JULIAN.H Tu es la plus belle chose qui me soit arrivée sur cette terre chaque moment avec toi est un cadeau précieux. Que la force, le courage et l&#39;honneur soit dans ton coeur mon fils. Je t&#39;aime.  PAPA MERCI AVM </span></p><p><span>vico: 天之道，损有余而补不足。</span></p><p><span>you jianzuo: Smart contract on BTC coming.</span></p><p><span>xsh: AVM makes Bitcoin greater.</span></p><p><span>lanxinr: Bitcoin and AVM will drive the world towards greater fairness, transparency, and freedom.</span></p><p><span>chirsj: congrats to come to the real world</span></p><p><span>siriusye: Mastering Satoshi-level manipulation is essential for Bitcoin&#39;s success. Atomicals will further enhance Bitcoin&#39;s potential. We are poised to witness an exciting future.</span></p><p><span>Nucleus</span></p><p><span>Karo Espiritu: Building for the future of cryptos.</span></p><p><span>Manuel Gómez</span></p><p><span>Franky: Nadie conoce qué nos deparará el futuro y poder enfrentarnos a él de forma exitosa puede resultarnos complicado en determinadas ocasiones.viva la libertad carajooo.</span></p><p><span>hehaifeng: Because of belief, one sees.</span></p><p><span>Erol Bodden: Expendiendo el universo de Bitcóin.</span></p><p><span>+Kelin: Atom makes BTC truly great!</span></p><p><span>+MrBWG: Great Bitcoin,Great Atomicals!</span></p><p><span>+kamen: Thanks Atomicals for contributing to the BTC ecosystem and changing my life.</span></p><p><span>kiroashi: nanmubagayalu</span></p><p><span>Peng Xia: Xiaoju Wang and Ruilin Xia，I love you forever!</span></p><p><span>Swee: Buy Bitcoin, own future.</span></p><p><span>wanghao</span></p><p><span>lushuguang: Lu Yi and Wang Hongfen are in good health and live long lives</span></p><p><span>李寒寅: web3 to the moon</span></p><p><span>Lu Qun, Yuan Yuqi: Yuan Xinyao finds a good job and marries a good wife</span></p><p><span>ele_crypto: Developing is improving the growth of any project</span></p><p><span>Daniel Rodriguez: I&#39;m very happy to participate in this project, I&#39;m from Argentina. VLLC!</span></p><p><span>Agustín Rodríguez: I believe in this project! Love you guys from Argentina</span></p><p><span>阿蒙: 祝愿一切都顺利</span></p><p><span>Terrific:1691888</span></p><p><span>Flybull</span></p><p><span>Neo188: To Be Healthy &amp; Wealthy!</span></p><p><span>Anonymous: 给年轻人一个机会</span></p><p><span>Banana: World is a frozen banana.</span></p><p><span>云鹏</span></p><p><span>Liberty Cats</span></p><p><span>Wanning: Freedom</span></p><p><span>Stone: Let Bitcoin shine again</span></p><p><span>Jianing: Bitcoin is Forever.</span></p><p><span>rengoku.sats/+rengoku: Set your heart ablaze.</span></p><p><span>0xrodger: Atomicals will open up a new world for Bitcoin</span></p><p><span>Techjoy: The future belongs to the crypto. And the Bitcoin ecosystem will play an important role in the future.</span></p><p><span>STRICH Gauthier: Merci pour cette révolution ⚛️</span></p><p><span>Lorry Xiong: To make bitcoin a world computer</span></p><p><span>DINGJIANZHONG: 100408220923</span></p><p><span>Zhining: Love and Peace</span></p><p><span>北方: ATOM使BTC变得更伟大、更完善。</span></p><p><span>Dailos, a Canario from &#39;82 who was at the birth of one of the greatest milestones of humanity ARC-20, I love Ana, the best mother in the world, without you nothing would have been possible, Thank you.</span></p><p><span>Tanz: Love Rice and Tammy forever and infinitely.</span></p><p><span>Kambo: I love my family, With Atomicals Protocol ,BTC will more greater!</span></p><p><span>苏苏: 为自由而战</span></p><p><span>ChengGong: Wishing Atomicals all the best for the future.</span></p><p><span>Less-23 huguesib: Bitcoin is complete. thanks to atomicals.</span></p><p><span>rupertgy: At this moment, you are witnessing history, the creator of miracles, Atomicals！ If you don&#39;t believe it, I don&#39;t have time to explain</span></p><p><span>liangaonb: Atomicals makes bitcoin great again!</span></p><p><span>Le Sauveur: D&#39;une une vision éclairée qui mérite la plus haute admiration, à des perspectives inestimables pour Bitcoin et au-delà.</span></p><p><span>to1dev: Bitcoin is our homeland!</span></p><p><span>LaMachina: Thank you, for your dedication and ingenuity. Atomicals brings the color that Bitcoin was lacking to fully realize its potential. We are witnessing a remarkable advancement that will undoubtedly leave a lasting mark on the history of the timechain. Thank you immensely.</span></p><p><span>Ehook: Blockbeats</span></p><p><span>AnyNodes: Building a Decentralized World</span></p><p><span>Estyven García Zapata: Atomicals Virtual Machine mi llave a la libertad! </span></p><p><span>石榴园_曙光村小学</span></p><p><span>chuqian: 人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。</span></p><p><span>MLRDKZT: All my admiration and gratitude for his ingenuity and diligence. They say we dream in color. Now, we Bitcoin in color. Thanks.</span></p><p><span>Tedchang112: Atomicals will be the most popular FT protocol on Bitcoin!!!</span></p><p><span>fanzj: Believe Atomicals !</span></p><p><span>Florent: From the Atom to the Infinity</span></p><p><span>Peng Xia: Xiaoju Wang and Ruilin Xia，I love you forever!</span></p><p><span>承彦: 让虚拟货币生态再次伟大</span></p><p><span> 撸噜子『華文道』: 比特币让中华文化焕新生,Bitcoin makes Chinese culture great again.</span></p><p><span>nicrain: Salute to the developers with ideals and capabilities, the world is different because of you!</span></p><p><span>大头: 原子协议让比特币更伟大</span></p><p><span>PengPeng: My love: Beryl,Mia and Bitcoin!</span></p><p><span>zhx295023: Make Atomicals Greate Again!</span></p><p><span>crazy4answer: Let&#39;s make the history</span></p><p><span>Mian_</span></p><p><span>老东: Atomicals fight till the end</span></p><p><span>Zoe Wang</span></p><p><span>+Crypto CY: Together We Build History</span></p><p><span>x.闻: 原子协议——永远伟大，永远热泪盈眶</span></p><p><span>Otomo_Sai@NextDAO</span></p><p><span>stopstopgogo: BTC OG</span></p><p><span>风筝: wish for better</span></p><p><span>李子建</span></p><p><span>EddieWen89: Atomicals will lead the crypto world</span></p><p><span>axu: Pay tribute to the great blockchain decentralization spirit,atomicals</span></p><p><span>LIYU: Always be optimistic, always stay positive and upward</span></p><p><span>Valody: 海市蜃楼虽幻境，乘风破浪仍向前(Although the mirage is illusory, it is still moving forward in the wind and waves.)</span></p><p><span>dayhon</span></p><p><span>出头之日: 2024Arc20带我自由飞翔！</span></p><p><span>海蜇: Make Bitcoin Great Again.</span></p><p><span>Hercules__Bg: The beginning.</span></p><p><span>_cyberkaiser: Thank you</span></p><p><span>⛲⚡🐕: Of course we will witness the rise of an era</span></p><p><span>xianshengV: Black Hole</span></p><p><span>Quarkduck: Color Quark, Color Atomicals!</span></p><p><span>sunlighthy: Let us witness the greatness of Atomicals together!</span></p><p><span>btc100w 张健</span></p><p><span>flreey</span></p><p><span>Hatom: Atomicals brings BTC to a new history.</span></p><p><span>ManuelitoNunes: Estamos a las puertas de una nueva era, estoy muy agradecido por ser parte de esto. Thank U ARC-20. ⚡️</span></p><p><span>Faridcinho: Un pequeño paso para mí, un gran paso para la humanidad.</span></p>
+	
+	<p><span>孤云将军: 孤独是一个人的狂欢，狂欢是一群人的孤独。</span></p>
+
+	<p><span>chaojimiaomiao: Healthy, happy, rich.</span></p>
+	<p><span>Undersea research: Find something undervalued</span></p>
+	<p><span>pengfei: i love arc20，i love quark！</span></p>
+	<p><span>s.: Congrats on the AVM whitepaper release! We're about to see a new future for the Bitcoin mainnet. Infinite possibilities.</span></p>
+	<p><span>HappilyNorth: But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control. Against such things there is no law.</span></p>
+	<p><span>大队长: 似真似假的朋友过眼云烟，刻进区块的誓言才是永远</span></p>
+
+</div></div>
+</body>
+</html>
